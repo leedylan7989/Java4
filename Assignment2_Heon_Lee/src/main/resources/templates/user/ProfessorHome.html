@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Professor Home</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Professor Home</h1>
+
+
+	<form action="#" th:action="@{/logout}">
+		<input type="submit" value="Logout" id="button">
+	</form>
+
+	<h2>Class Details</h2>
+	
+	<br>
+	Number of Students: <label th:text="${numStudents}"></label>
+	<br>
+	<h3>Class Average by Grade Category</h3>
+	<table border="1">
+		<tr>
+			<th>Exercises</th>
+			<th>Assignment 1</th>
+			<th>Assignment 2</th>
+			<th>Midterm</th>
+			<th>Final Exam</th>
+			<th>Final Project</th>
+			<th>Class Average</th>
+		</tr>
+		<tr>
+			<td th:text="${exercisesAverage}"></td>
+			<td th:text="${assignment1Average}"></td>
+			<td th:text="${assignment2Average}"></td>
+			<td th:text="${midtermAverage}"></td>
+			<td th:text="${finalexamAverage}"></td>
+			<td th:text="${finalprojectAverage}"></td>
+			<td th:text="${average}"></td>
+		</tr>
+	</table>
+	
+	<h2>Student List</h2>
+
+	<br>
+	<div th:each="m:${messages}" th:text="${m}" id="messages"></div>
+	<br>
+
+	<form action="/addStudent">
+		<input type="submit" value="Add Student" id="button">
+	</form>
+	
+	<br>
+
+	<table border="1">
+	<tr>
+		<th>Student Name</th>
+		<th>Student ID</th>
+		<th>View Details</th>
+		<th>Delete</th>
+	</tr>
+	<tr th:each="s:${students}">
+		<td th:text="${s.sname}"></td>
+		<td th:text="${s.sid}"></td>
+		<td>
+			<form action="#" th:action="@{/viewStudent/{studentid}(studentid=${s.id})}">
+					<input type="submit" value="View/Edit Student" id="button">
+			</form>
+		</td>
+		<td>
+			<form action="#" th:action="@{/deleteStudent/{studentid}(studentid=${s.id})}">
+					<input type="submit" value="Delete Student" id="button">
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

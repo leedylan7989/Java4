@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Details</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Student Home</h1>
+
+<br>
+
+<form action="#" th:action="@{/logout}">
+	<input type="submit" value="Logout" id="button">
+</form>
+
+<br>
+<table border="1">
+	<tr>
+		<th>Student Name</th>
+		<td th:text="${student.sname}"></td>
+	</tr>
+	<tr>
+		<th>Student ID</th>
+		<td th:text="${student.sid}"></td>
+	</tr>
+</table>
+
+<br>
+
+<table border="1">
+	<tr>
+		<th>Title</th>
+		<th>Grade</th>
+		<th>Letter Grade</th>
+		<th>Weight</th>
+		<th>Weighted Grade</th>
+	</tr>
+	<tr>
+		<td>Exercises</td>
+		<td th:text="${student.exercises}"></td>
+		<td th:text="${letterExercises}"></td>
+		<td>10%</td>
+		<td th:text="${weightedExercises}"></td>
+	</tr>
+	<tr>
+		<td>Assignment 1</td>
+		<td th:text="${student.assignment1}"></td>
+		<td th:text="${letterAssignment1}"></td>
+		<td>5%</td>
+		<td th:text="${weightedAssignment1}"></td>
+	</tr>
+	<tr>
+		<td>Assignment 2</td>
+		<td th:text="${student.assignment2}"></td>
+		<td th:text="${letterAssignment2}"></td>
+		<td>5%</td>
+		<td th:text="${weightedAssignment2}"></td>
+	</tr>
+	<tr>
+		<td>Midterm</td>
+		<td th:text="${student.midterm}"></td>
+		<td th:text="${letterMidterm}"></td>
+		<td>30%</td>
+		<td th:text="${weightedMidterm}"></td>
+	</tr>
+	<tr>
+		<td>Final Exam</td>
+		<td th:text="${student.finalExam}"></td>
+		<td th:text="${letterFinalexam}"></td>
+		<td>35%</td>
+		<td th:text="${weightedFinalexam}"></td>
+	</tr>
+	<tr>
+		<td>Final Project</td>
+		<td th:text="${student.finalProject}"></td>
+		<td th:text="${letterFinalproject}"></td>
+		<td>15%</td>
+		<td th:text="${weightedFinalproject}"></td>
+	</tr>
+</table>
+
+<br>
+
+<table border="1">
+	<tr>
+		<th>Weighted Total</th>
+		<th>Letter Grade</th>
+	</tr>
+	<tr>
+		<td th:text="${weightedTotal}"></td>
+		<td th:text="${gradeLetterTotal}"></td>
+	</tr>
+</table>
+</body>
+
+</body>
+</html>

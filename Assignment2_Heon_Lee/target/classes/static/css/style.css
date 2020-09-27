@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+#button {
+	background-color: #3498db;
+	border: none;
+	padding: 10px 30px;
+	color: white;
+	font-size:100%;
+}
+
+body {
+	background-color: #cfdff9;
+	text-align: center;
+	font-family: Calibri;
+}
+
+table{
+	margin: 0 auto;
+	border-style: solid;
+	border-color: #8b9099;
+}
+
+th, td{
+	padding: 10px;
+}
+
+#messages{
+	color: rgb(60, 60, 60);
+	font-style: italic;
+}
+
+#errors{
+	color: red;
+	font-style: italic;
+}

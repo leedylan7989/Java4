@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Add Student</h1>
+
+
+<h2>Please type the student information</h2>
+
+	<br>
+	<div th:each="e:${errors}" th:text="${e}" id="errors"></div>
+	<br>
+
+	<form action="#" th:action="@{/saveStudent}" th:object="${student}">
+		<table>
+			<tr>
+				<td>Student ID:</td>
+				<td><input type="text" th:field="*{sid}" /></td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{sname}" /></td>
+			</tr>
+			<tr>
+				<td>Exercises (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{exercises}" /></td>
+			</tr>
+			<tr>
+				<td>Assignment 1 (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{assignment1}" />%</td>
+			</tr>
+			<tr>
+				<td>Assignment 2 (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{assignment2}" />%</td>
+			</tr>
+			<tr>
+				<td>Midterm (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{midterm}" />%</td>
+			</tr>
+			<tr>
+				<td>Final Exam (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{finalExam}" />%</td>
+			</tr>
+			<tr>
+				<td>Final Project (Up to two decimal places):</td>
+				<td><input type="text" th:field="*{finalProject}" />%</td>
+			</tr>
+		</table>
+
+		<br> <input type="submit" value="Add Student" id="button">
+	</form>
+	
+	<br>
+	
+	<form action="#" th:action="@{/Home}">
+	<input type="submit" value="Back" id="button">
+	
+</form>
+
+</body>
+</html>

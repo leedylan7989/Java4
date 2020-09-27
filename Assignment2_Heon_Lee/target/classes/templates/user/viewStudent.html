@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Student</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>View Student - <label th:text="${student.sname}"></label></h1>
+
+<br>
+
+<form action="#" th:action="@{/editStudent/{studentid}(studentid=${student.id})}">
+	<input type="submit" value="Edit Student Information" id="button">
+</form>
+
+<br>
+<table border="1">
+	<tr>
+		<th>Student Name</th>
+		<td th:text="${student.sname}"></td>
+	</tr>
+	<tr>
+		<th>Student ID</th>
+		<td th:text="${student.sid}"></td>
+	</tr>
+</table>
+
+<br>
+
+<table border="1">
+	<tr>
+		<th>Title</th>
+		<th>Grade</th>
+	</tr>
+	<tr>
+		<td>Exercises</td>
+		<td th:text="${student.exercises}"></td>
+	</tr>
+	<tr>
+		<td>Assignment 1</td>
+		<td th:text="${student.assignment1}"></td>
+	</tr>
+	<tr>
+		<td>Assignment 2</td>
+		<td th:text="${student.assignment2}"></td>
+	</tr>
+	<tr>
+		<td>Midterm</td>
+		<td th:text="${student.midterm}"></td>
+	</tr>
+	<tr>
+		<td>Final Exam</td>
+		<td th:text="${student.finalExam}"></td>
+	</tr>
+	<tr>
+		<td>Final Project</td>
+		<td th:text="${student.finalProject}"></td>
+	</tr>
+</table>
+
+
+
+<br>
+
+<table border="1">
+	<tr>
+		<th>Weighted Total</th>
+		<th>Letter Grade</th>
+	</tr>
+	<tr>
+		<td th:text="${weightedTotal}"></td>
+		<td th:text="${gradeLetterTotal}"></td>
+	</tr>
+</table>
+
+<br>
+
+<form action="#" th:action="@{/Home}">
+	<input type="submit" value="Back" id="button">
+</form>
+
+</body>
+
+
+
+
+</body>
+</html>

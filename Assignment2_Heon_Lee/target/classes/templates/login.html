@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Assignment 2 - Login</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Login Page</h1>
+
+<form action="#" th:action="@{/login}" method="post">
+	<div th:if="${param.error}">
+		<div id="errors">
+			Invalid username or password
+		</div>
+	</div>
+	
+	<br>
+	
+	<div th:if="${param.logout}">
+		<div id="message">
+			You have been logged out.
+		</div>
+	</div>
+	<table>
+	<tr>
+		<th><label for="username">Username</label></th>
+		<td><input type="text" id="username" name="username" autofocus="autofocus" placeholder="Username"></td>
+	</tr>
+	<tr>
+		<th><label for="password">Password</label></th>
+		<td><input type="password" id="password" name="password" placeholder="Password"></td>
+	</tr>
+	</table>
+	
+	<br>
+	
+	<div>
+		<input type="submit" name="login-submit" id="button" value="Log In">
+	</div>
+	
+</form>
+
+<br>
+
+	<form action="#" th:action="@{/}">
+		<input type="submit" value="Back" id="button">
+	</form>
+	
+	
+</body>
+</html>
