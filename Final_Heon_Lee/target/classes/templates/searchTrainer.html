@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Search for available trainers</h1>
+
+<br>
+
+<h2>Please type natural numbers for the search fields</h2>
+
+<br>
+
+<form action="/searchAvailableTrainer">
+	Month (1 - 12): <input type="text" name="month" />
+	<br>
+	Day (1 - 30): <input type="text" name="day" />
+	<br>
+	Start time (8 - 19): <input type="text" name="time" />
+	<br>
+	<input type="submit" value="Search Available Trainers">
+</form>
+
+<br>
+
+<h2>Available Trainers</h2>
+
+<br>
+
+<table border="1">
+		<tr>
+			<th>Trainer Name</th>
+		</tr>
+		<tr th:each="t:${trainers}">
+			<td th:text="${t.name}"></td>
+		</tr>
+	</table>
+
+<br>
+	<form action="#" th:action="@{/}">
+		<input type="submit" value="Back" id="button">
+	</form>
+	
+</body>
+</html>

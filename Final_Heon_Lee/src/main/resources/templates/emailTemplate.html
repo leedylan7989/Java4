@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+h1{
+    color: green;
+}
+h2{
+    color: blue;
+}
+</style>
+</head>
+<body>
+
+<h1>Appointment booked!</h1>
+<h2 th:text="'Thank you, ' + ${name} + '!'">Standard Greeting</h2>
+<div th:text="${message}">Some message</div>
+<div th:text="${footer}">Some Footer</div>
+
+</body>
+</html>

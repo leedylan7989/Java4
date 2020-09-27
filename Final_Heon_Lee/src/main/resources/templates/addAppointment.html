@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Appointment</title>
+</head>
+<body>
+
+<h1>Add Appointment</h1>
+
+	<br>
+	<div th:each="m:${messages}" th:text="${m}" id="messages"></div>
+	<br>
+
+<form action="#" th:action="@{/saveAppointment}" th:object="${appointment}">
+		<table>
+			<tr>
+				<td>Client Name:</td>
+				<td><input type="text" th:field="*{client}" /></td>
+			</tr>
+			<tr>
+				<td>Month of the Date (in non zero positive natural number / 1 - 12):</td>
+				<td><input type="text" th:field="*{month}" /></td>
+			</tr>
+			<tr>
+				<td>Date of the Date (in non zero positive natural number / 1 - 30):</td>
+				<td><input type="text" th:field="*{day}" /></td>
+			</tr>
+			<tr>
+				<td>Start Time (in non zero positive natural number / 8 - 19):</td>
+				<td><input type="text" th:field="*{start}" /></td>
+			</tr>
+			<tr>
+				<td>Message:</td>
+				<td><input type="text" th:field="*{message}" /></td>
+			</tr>
+			<tr>
+				<td>Trainer: <select th:field="*{trainer}">
+						<option th:each="t:${trainers}" th:value="${t.name}"
+							th:text="${t.name}">
+				</select>
+				</td>
+			</tr>
+			
+		</table>
+		
+		<br>
+		
+		A notification email will be sent if you type your email address here! <br>
+		Email: <input type="text" name="email"> <br>
+
+		<br> <input type="submit" value="Add Appointment" id="button">
+	</form>
+
+	<br>
+	<form action="#" th:action="@{/}">
+		<input type="submit" value="Back" id="button">
+	</form>
+
+</body>
+</html>

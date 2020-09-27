@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Check Trainer Schedule</h1>
+
+<br>
+
+<form action="/checkTrainerSchedule">
+	Select a Trainer: <select name="trainerid">
+		<option th:each="t:${trainers}" th:value="${t.id}" th:text="${t.name}">
+	</select>
+	<br>
+	Select a Month: <select name="month">
+		<option th:each="m:${months}" th:value="${m}" th:text="${m}">
+	</select>
+	<br>
+	Select a Day: <select name="day">
+		<option th:each="d:${days}" th:value="${d}" th:text="${d}">
+	</select>
+	<br>
+	<input type="submit" value="Check Schedule">
+</form>
+
+<br>
+Trainer: <label th:text="${trainerName}"></label>
+<br>
+Month: <label th:text="${month}"></label>
+<br>
+Day: <label th:text="${day}"></label>
+<br>
+
+	<table border="1">
+		<tr>
+			<th>Start Time</th>
+			<th>Client Name</th>
+			<th>Message</th>
+		</tr>
+		<tr th:each="a:${appointments}">
+			<td th:text="${a.start} + ':00'"></td>
+			<td th:text="${a.client}"></td>
+			<td th:text="${a.message}"></td>
+		</tr>
+	</table>
+
+<br>
+	<form action="#" th:action="@{/}">
+		<input type="submit" value="Back" id="button">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Trainer</title>
+</head>
+<body>
+
+<h1>Add Trainer</h1>
+
+
+	<br>
+	<div th:each="m:${messages}" th:text="${m}" id="messages"></div>
+	<br>
+	
+<form action="#" th:action="@{/saveTrainer}" th:object="${trainer}">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+		</table>
+
+		<br> <input type="submit" value="Add Trainer" id="button">
+	</form>
+	
+	<br>
+<form action="#" th:action="@{/}">
+	<input type="submit" value="Back" id="button">
+</form>
+
+</body>
+</html>
