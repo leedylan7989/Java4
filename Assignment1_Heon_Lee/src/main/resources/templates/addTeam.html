@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Add Teams</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Add Teams</h1>
+<h3>A page for manually adding a team</h3>
+<br>
+
+<div id="errors" th:each="e:${errors}" th:text="${e}"></div>
+<div id="messages" th:each="e:${messages}" th:text="${e}"></div>
+
+<br>
+
+	<form action="#" th:action="@{/saveTeam}" th:object="${team}">
+		<table>
+			<tr>
+				<td>Team Name: <input type="text" th:field="*{name}" /></td>
+			</tr>
+		</table>
+		<br/>
+		<input type="submit" value="Add Team" id="button">
+	</form>
+	<br />
+
+	<form action="#" th:action="@{/}">
+	<input type="submit" value="Return" id="button">
+</form>
+<br/>
+
+<h2>Teams</h2>
+<table border="1">
+	<tr>
+		<th>Team Name</th>
+		<th>Players</th>
+	</tr>
+	<tr th:each="t:${teams}">
+		<td th:text="${t.name}"></td>
+		<td>
+			<table>
+				<tr th:each="p:${t.players}">
+					<td th:text="${p.name}"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

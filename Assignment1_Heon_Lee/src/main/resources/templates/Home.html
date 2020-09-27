@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Assignment 1 - Heon Lee</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+	<h1>Sheridan Rec Volleyball</h1>
+
+	<div style="color: red" th:each="e:${errors}" th:text="${e}"></div>
+	<div th:each="e:${messages}" th:text="${e}" id="messages"></div>
+
+	<br>
+
+	<form action="/addPlayer">
+		<input type="submit" value="Add Player" id="button">
+	</form>
+	<br>
+	<form action="/addTeam">
+		<input type="submit" value="Add Team" id="button">
+	</form>
+	<br>
+	<form action="/matchPlayers">
+		<input type="submit" value="Organize Players Automatically"
+			id="button">
+	</form>
+	<br>
+	<form action="/managePlayer">
+		<input type="submit" value="Search and Manage Players" id="button">
+	</form>
+
+</body>
+</html>

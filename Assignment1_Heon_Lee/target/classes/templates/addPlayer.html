@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Add Players</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+	<h1>Add Players</h1>
+
+	<br>
+
+	<div th:each="e:${errors}" th:text="${e}" id="errors"></div>
+	<div th:each="e:${messages}" th:text="${e}" id="messages"></div>
+
+	<br>
+
+	<form action="#" th:action="@{/savePlayer}" th:object="${player}">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="text" th:field="*{age}" /></td>
+			</tr>
+			<tr>
+				<td>Gender (M/F):</td>
+				<td><input type="text" th:field="*{gender}" /></td>
+			</tr>
+			<tr>
+				<td>Phone number:</td>
+				<td><input type="text" th:field="*{phone}" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+		</table>
+
+		<br> <input type="submit" value="Add Player" id="button">
+	</form>
+
+	<br />
+
+	<form action="#" th:action="@{/}">
+		<input type="submit" value="Return" id="button">
+	</form>
+
+</body>
+</html>

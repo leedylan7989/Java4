@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Edit Players</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Edit Player</h1>
+
+	<br>
+
+	<div th:each="e:${editErrors}" th:text="${e}" id="errors"></div>
+
+	<br>
+
+
+<form action="#" th:action="@{/updatePlayer}" th:object="${player}">
+	<input type="hidden" th:field="*{id}"/><br>
+	<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="text" th:field="*{age}" /></td>
+			</tr>
+			<tr>
+				<td>Gender (M/F):</td>
+				<td><input type="text" th:field="*{gender}" /></td>
+			</tr>
+			<tr>
+				<td>Phone number:</td>
+				<td><input type="text" th:field="*{phone}" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+		</table>
+		<input type="hidden" th:field="*{team}">
+	
+	
+	<br> 
+	<input type="submit" value="Update Player" id="button">
+</form>
+
+<hr/>
+<h1>Add Player to a team</h1>
+
+<div style="color:red" th:each="e:${errors}" th:text="${e}"></div>
+<br>
+<form action="/movePlayer">
+	<input type="hidden" th:value="${player.id}" name="id"/><br>
+	Current Team: <label th:text="${player.team}"></label><br>
+	Select Team: <select name="team">
+		<option th:each="t:${teams}" th:value="${t.id}" th:text="${t.name}">
+	</select>
+	<br>
+	<input type="submit" value="Add Player to the team" id="button">
+</form>
+
+<br>
+
+<hr/>
+
+<form action="#" th:action="@{/managePlayer}">
+	<input type="submit" value="Back" id="button">
+</form>
+
+</body>
+</html>

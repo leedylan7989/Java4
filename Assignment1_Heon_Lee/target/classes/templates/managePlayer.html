@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Search and Manage Players</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Search and Manage Players</h1>
+
+
+<br>
+	<div th:each="m:${messages}" th:text="${m}" id="messages"></div>
+<br>
+
+<h2>Search Players</h2>
+
+<form action="/searchByName">
+
+Search By Name: <input type="text" name="name" />
+<input type="submit" value="Search" id="button">
+
+</form>
+
+<br>
+
+<form action="/searchByTeam">
+
+Search By Team: <input type="text" name="team" />
+<input type="submit" value="Search" id="button">
+
+</form>
+
+<br>
+
+<form action="/searchByAge">
+
+Search By Age: <input type="text" name="age" />
+<input type="submit" value="Search" id="button">
+
+</form>
+
+<br>
+
+<form action="/searchByGender">
+
+Search By Gender: <input type="text" name="gender" />
+<input type="submit" value="Search" id="button">
+
+</form>
+
+<br>
+
+<form action="/managePlayer">
+
+<input type="submit" value="Clear Search" id="button">
+
+</form>
+
+<br>
+
+<form action="/swapPlayers">
+	<input type="submit" value="Swap Players" id="button">
+</form>
+
+<br>
+
+<form action="#" th:action="@{/}">
+	<input type="submit" value="Return" id="button">
+</form>
+
+<br>
+
+<div id="errors" th:each="e:${errors}" th:text="${e}"></div>
+
+<br>
+
+<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Gender (M/F)</th>
+		<th>Phone Number</th>
+		<th>Email</th>
+		<th>Team Name</th>
+	</tr>
+	<tr th:each="p:${players}">
+		<td th:text="${p.name}"></td>
+		<td th:text="${p.age}"></td>
+		<td th:text="${p.gender}"></td>
+		<td th:text="${p.phone}"></td>
+		<td th:text="${p.email}"></td>
+		<td th:text="${p.team}"></td>
+		<td>
+			<a href="" th:href="@{/editPlayer/{playerid}(playerid=${p.id})}">Edit</a>
+		</td>
+		<td>
+			<a href="" th:href="@{/deletePlayer/{playerid}(playerid=${p.id})}">Delete</a>
+		</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

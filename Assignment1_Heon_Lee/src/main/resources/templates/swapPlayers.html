@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="author" content="Heon Lee">
+<title>Swap Players</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Swap Players</h1>
+<br>
+
+<div id="errors" th:each="e:${errors}" th:text="${e}"></div>
+
+<br>
+	<form action="/saveSwappedPlayers">
+		<table>
+			<tr>
+				<td>Player 1:</td>
+				<td><select name="player1">
+						<option th:each="p:${players}" th:value="${p.id}"
+							th:text="${p.name} + ' - ' + ${p.team}">
+				</select></td>
+			</tr>
+			<tr>
+				<td>Player 2:</td>
+				<td><select name="player2">
+						<option th:each="p:${players}" th:value="${p.id}"
+							th:text="${p.name} + ' - ' + ${p.team}">
+				</select></td>
+			</tr>
+		</table>
+
+		<br> <input type="submit" value="Swap Players" id="button">
+	</form>
+
+<br/>
+
+<form action="#" th:action="@{/managePlayer}">
+	<input type="submit" value="Back" id="button">
+</form>
+
+</body>
+</html>
